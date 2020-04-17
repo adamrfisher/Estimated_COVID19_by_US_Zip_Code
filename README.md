@@ -8,3 +8,7 @@ reports at least 1,000 cases on any day since Jan 1, 2020.
 At a high level this captures about 80% of cases and deaths accross the US.
 
 The thinking here is that most people know there US Zip Code and not their County FIPS Code!
+
+Specials thanks to Simplemaps for providing the baselie zip code mappings to FIPS code as well as population numbers at the zip code level.  It's been built from the ground up using authoritative sources including the U.S. Postal Service™, U.S. Census Bureau, National Weather Service, American Community Survey, and the IRS.
+
+https://simplemaps.com/data/us-zips
