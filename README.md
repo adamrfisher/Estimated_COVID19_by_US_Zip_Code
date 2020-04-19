@@ -2,8 +2,8 @@
 Estimated Covid-19 case and death counts as reported by the New York Times by County for the top Zip codes within the US
 
 Using daily data extraced from https://github.com/nytimes/covid-19-data I am taking the county level data and estimating
-case counts and death counts distributed by population concentration to the known zip codes among the counties where the NYT
-reports at least 1,000 cases on any day since Jan 21, 2020.  
+case counts and death counts distributed by population concentration to the known Zip codes among the counties where the NYT
+reports cases since Jan 21, 2020.  
 
 At a high level this captures data for over 30,000 Zip codes.
 
