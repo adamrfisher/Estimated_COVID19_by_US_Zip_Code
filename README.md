@@ -7,7 +7,7 @@ reports cases since Jan 21, 2020.
 
 At a high level this captures data for over 30,000 Zip codes.
 
-The thinking here is that most people know there US Zip code and not their County FIPS Code!
+The thinking here is that most people know more about their own US Zip code and much less about their County FIPS Code!
 
 Specials thanks to Simplemaps for providing the baselie zip code mappings to FIPS code as well as population numbers at the Zip code level.  It's been built from the ground up using authoritative sources including the U.S. Postal Service™, U.S. Census Bureau, National Weather Service, American Community Survey, and the IRS.
 
