@@ -1,0 +1,22 @@
+SELECT Right([zip],5) AS ?ZIP_CODE, Uszips.city, Uszips.ZIP_CODE_POPULATION AS ZIP_POPULATION, Uszips.timezone, [Uszips].[county] & ", " & [Uszips].[state] AS COUNTY_NAME_STATE, Uszips.state AS STATE, Uszips.county_fips, [qry 01 - County by Date].SumOfcases AS COUNTY_REPORTED_CASES, Round([SumOfcases]*([ZIP_CODE_POPULATION]/[SumOfZIP_CODE_POPULATION]),0) AS ESTIMATED_CASES_BY_ZIP_CODE, Round([SumOfdeaths]*([ZIP_CODE_POPULATION]/[SumOfZIP_CODE_POPULATION]),0) AS ESTIMATED_DEATHS_BY_ZIP_CODE, [qry 01 - County by Date].Date AS AS_OF_DATE
+FROM ([qry 01 - County by Date] INNER JOIN [qry 02 v2 - calc county population totals] ON ([qry 01 - County by Date].state = [qry 02 v2 - calc county population totals].state) AND ([qry 01 - County by Date].county = [qry 02 v2 - calc county population totals].county)) INNER JOIN Uszips ON ([qry 01 - County by Date].county = Uszips.county) AND ([qry 01 - County by Date].state = Uszips.state)
+WHERE (((Uszips.ZIP_CODE_POPULATION)>0))
+ORDER BY [qry 01 - County by Date].SumOfcases DESC , Round([SumOfcases]*([ZIP_CODE_POPULATION]/[SumOfZIP_CODE_POPULATION]),0) DESC , [qry 01 - County by Date].Date DESC;
+
+
+----
+
+SELECT ZipsPASTE.county, ZipsPASTE.state, Sum(ZipsPASTE.ZIP_CODE_POPULATION) AS SumOfZIP_CODE_POPULATION
+FROM ZipsPASTE
+GROUP BY ZipsPASTE.county, ZipsPASTE.state
+ORDER BY Sum(ZipsPASTE.ZIP_CODE_POPULATION) DESC;
+
+----
+
+SELECT [Us-counties].Date, [Us-counties].fips, [Us-counties].county, [Us-counties].state, Sum([Us-counties].cases) AS SumOfcases, Sum([Us-counties].deaths) AS SumOfdeaths
+FROM [Us-counties]
+WHERE ((([Us-counties].county)<>"Unknown"))
+GROUP BY [Us-counties].Date, [Us-counties].fips, [Us-counties].county, [Us-counties].state
+ORDER BY [Us-counties].Date DESC , Sum([Us-counties].cases) DESC;
+
+
